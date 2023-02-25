@@ -17,4 +17,5 @@ Spring Web   <br />
 Spring Data JPA  <br />
 PostgreSQL Driver  <br />
 Spring Security  <br />
-H2 database
+H2 database  <br />
+Lombok (added manually)
