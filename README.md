@@ -18,5 +18,8 @@ Spring Data JPA  <br />
 PostgreSQL Driver  <br />
 Spring Security  <br />
 H2 database  <br />
-Lombok (added manually) <br />
-AssertJ (added manually)
+
+## Manually added dependencies
+Lombok <br />
+AssertJ <br />
+Mockito (core, junit-jupiter)
