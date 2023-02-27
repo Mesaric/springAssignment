@@ -30,7 +30,7 @@ public class AppUser implements UserDetails {
     )
     private Long id;
     private String email;
-    private  String password;
+    private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
 
