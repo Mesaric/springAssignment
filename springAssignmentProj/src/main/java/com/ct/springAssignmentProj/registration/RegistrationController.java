@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class RegistrationController {
     private final RegistrationService registrationService;
-    @PostMapping(path = "registration")
+    @PostMapping("registration")
     public String register(@RequestBody RegistrationRequest request) {
         return  registrationService.register(request);
     }

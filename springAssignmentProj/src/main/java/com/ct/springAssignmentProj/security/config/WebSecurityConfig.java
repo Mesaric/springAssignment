@@ -20,13 +20,16 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests()
-                    .requestMatchers("/registration")
-                    .permitAll()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin();
-
+                .authorizeHttpRequests()
+                .requestMatchers("/hello-rest").permitAll()
+                .requestMatchers("/hello").permitAll()
+                .requestMatchers("/registration").permitAll()
+                .requestMatchers("/secure/hello").hasAnyAuthority("USER", "ADMIN")
+                .requestMatchers("/secure/add").hasAuthority("ADMIN")
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic();
         return http.build();
     }
 }

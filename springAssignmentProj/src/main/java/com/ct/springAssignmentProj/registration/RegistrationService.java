@@ -22,7 +22,7 @@ public class RegistrationService {
                 new AppUser(
                         request.getEmail(),
                         request.getPassword(),
-                        AppUserRole.USER
+                        AppUserRole.ADMIN
                 )
         );
     }
