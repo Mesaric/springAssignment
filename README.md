@@ -18,4 +18,5 @@ Spring Data JPA  <br />
 PostgreSQL Driver  <br />
 Spring Security  <br />
 H2 database  <br />
-Lombok (added manually)
+Lombok (added manually) <br />
+AssertJ (added manually)

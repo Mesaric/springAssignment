@@ -26,10 +26,10 @@ public class WebSecurityConfig {
                 .requestMatchers("/registration").permitAll()
                 .requestMatchers("/secure/hello").hasAnyAuthority("USER", "ADMIN")
                 .requestMatchers("/secure/add").hasAuthority("ADMIN")
+                .anyRequest()
+                .authenticated()
                 .and()
-                .formLogin()
-                .and()
-                .httpBasic();
+                .formLogin();
         return http.build();
     }
 }
