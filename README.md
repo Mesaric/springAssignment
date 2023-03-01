@@ -22,4 +22,5 @@ H2 database  <br />
 ## Manually added dependencies
 Lombok <br />
 AssertJ <br />
-Mockito (core, junit-jupiter)
+Mockito (core, junit-jupiter) <br />
+Thymeleaf
