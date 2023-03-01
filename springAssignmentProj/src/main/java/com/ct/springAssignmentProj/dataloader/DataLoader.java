@@ -3,8 +3,8 @@ package com.ct.springAssignmentProj.dataloader;
 import com.ct.springAssignmentProj.appuser.AppUser;
 import com.ct.springAssignmentProj.appuser.AppUserRole;
 import com.ct.springAssignmentProj.appuser.AppUserService;
-import com.ct.springAssignmentProj.greeting.Greeting;
-import com.ct.springAssignmentProj.greeting.GreetingRepository;
+import com.ct.springAssignmentProj.translation.Translation;
+import com.ct.springAssignmentProj.translation.TranslationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,22 +18,22 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
-    private final GreetingRepository greetingRepository;
+    private final TranslationRepository translationRepository;
     private final AppUserService appUserService;
 
     @Override
     public void run(String... args) throws Exception {
-        greetingRepository.save(new Greeting("Hello world", "EN"));
-        greetingRepository.save(new Greeting("Pozdravljen svet", "SL"));
-        greetingRepository.save(new Greeting("Ahoj svet", "SK"));
-        greetingRepository.save(new Greeting("Hola mundo", "ES"));
-        greetingRepository.save(new Greeting("Hallo welt", "DE"));
+        translationRepository.save(new Translation("Hello world", "EN"));
+        translationRepository.save(new Translation("Pozdravljen svet", "SL"));
+        translationRepository.save(new Translation("Ahoj svet", "SK"));
+        translationRepository.save(new Translation("Hola mundo", "ES"));
+        translationRepository.save(new Translation("Hallo welt", "DE"));
 
-        greetingRepository.save(new Greeting("Bonjour le monde", "FR"));
-        greetingRepository.save(new Greeting("Witaj swiecie", "PL"));
-        greetingRepository.save(new Greeting("Halo dunia", "ID"));
-        greetingRepository.save(new Greeting("Ciao mondo", "IT"));
-        greetingRepository.save(new Greeting("Hallo wereld", "NL"));
+        translationRepository.save(new Translation("Bonjour le monde", "FR"));
+        translationRepository.save(new Translation("Witaj swiecie", "PL"));
+        translationRepository.save(new Translation("Halo dunia", "ID"));
+        translationRepository.save(new Translation("Ciao mondo", "IT"));
+        translationRepository.save(new Translation("Hallo wereld", "NL"));
 
 
         appUserService.signUpUser(new AppUser("user@gmail.com", "123", AppUserRole.USER));
