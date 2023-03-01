@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -17,4 +19,22 @@ public class TranslationController {
         model.addAttribute("language", language);
         return "helloWorld";
     }
+    @GetMapping(value = "secure/admin")
+    public String feature06(Model model){
+        model.addAttribute("translationForm", new Translation());
+        model.addAttribute("statusMessage", "");
+        return "addTranslation";
+    }
+
+    @PostMapping(value = "secure/addTranslation")
+    public String addEntry(@ModelAttribute Translation translation, Model model){
+
+        String statusMessage = translationService.addTranslation(translation);
+
+        model.addAttribute("translationForm", new Translation());
+        model.addAttribute("statusMessage", statusMessage);
+        return "redirect:/secure/admin";
+
+    }
+
 }

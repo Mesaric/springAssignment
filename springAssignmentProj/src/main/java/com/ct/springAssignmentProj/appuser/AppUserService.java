@@ -13,6 +13,9 @@ public class AppUserService implements UserDetailsService {
 
     private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
     private final static String USER_EXISTS_MSG = "User with email %s already exists";
+    private final static String USER_SIGNEDUP_MSG = "User with email %s signed up successfully";
+
+
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Override
@@ -31,6 +34,6 @@ public class AppUserService implements UserDetailsService {
 
         appUserRepository.save(appUser);
 
-        return String.format("user with %s signed  up", appUser.getEmail());
+        return String.format(USER_SIGNEDUP_MSG, appUser.getEmail());
     }
 }

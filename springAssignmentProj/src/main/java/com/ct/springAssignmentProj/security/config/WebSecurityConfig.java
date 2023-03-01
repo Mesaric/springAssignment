@@ -25,7 +25,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/hello").permitAll()
                 .requestMatchers("/registration").permitAll()
                 .requestMatchers("/secure/hello").hasAnyAuthority("USER", "ADMIN")
-                .requestMatchers("/secure/add").hasAuthority("ADMIN")
+                .requestMatchers("/secure/admin").hasAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
