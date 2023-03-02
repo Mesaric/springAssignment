@@ -1,6 +1,8 @@
 package com.ct.springAssignmentProj.appuser;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +31,10 @@ public class AppUser implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
+    @Size(max = 255, message = "AppUser's email is limited to 255 characters.")
+    @NotEmpty(message = "AppUser's email cannot be empty.")
     private String email;
+    @NotEmpty(message = "AppUser's password cannot be empty.")
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;

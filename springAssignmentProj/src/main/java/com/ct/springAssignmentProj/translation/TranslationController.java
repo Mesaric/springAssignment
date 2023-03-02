@@ -21,7 +21,7 @@ public class TranslationController {
     }
     @GetMapping(value = "secure/admin")
     public String feature06(Model model){
-        model.addAttribute("translationForm", new Translation());
+        model.addAttribute("translation", new Translation());
         model.addAttribute("statusMessage", "");
         return "addTranslation";
     }
@@ -31,7 +31,7 @@ public class TranslationController {
 
         String statusMessage = translationService.addTranslation(translation);
 
-        model.addAttribute("translationForm", new Translation());
+        model.addAttribute("translation", new Translation());
         model.addAttribute("statusMessage", statusMessage);
         return "redirect:/secure/admin";
 

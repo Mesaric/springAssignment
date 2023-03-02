@@ -23,4 +23,5 @@ H2 database  <br />
 Lombok <br />
 AssertJ <br />
 Mockito (core, junit-jupiter) <br />
-Thymeleaf
+Thymeleaf <br />
+Validation
