@@ -1,23 +1,14 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
-import com.ct.springAssignmentProj.appuser.AppUser;
-import com.ct.springAssignmentProj.appuser.AppUserRepository;
-import com.ct.springAssignmentProj.appuser.AppUserRole;
-import com.ct.springAssignmentProj.appuser.AppUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

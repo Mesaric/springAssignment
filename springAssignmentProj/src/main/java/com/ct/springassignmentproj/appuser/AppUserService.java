@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.appuser;
+package com.ct.springassignmentproj.appuser;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.appuser;
+package com.ct.springassignmentproj.appuser;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;

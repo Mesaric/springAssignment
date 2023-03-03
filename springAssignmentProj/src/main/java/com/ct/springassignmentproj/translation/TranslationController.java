@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

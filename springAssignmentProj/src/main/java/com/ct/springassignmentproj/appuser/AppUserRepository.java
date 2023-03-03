@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.appuser;
+package com.ct.springassignmentproj.appuser;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

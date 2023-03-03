@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class TranslationRestController {
     private  final TranslationService translationService;
+    private  final TranslationServiceExternal translationServiceExternal;
+
 
     @GetMapping(value = "hello-rest")
     public String feature01(@RequestParam(name="language", required=false, defaultValue="EN")
@@ -20,4 +22,12 @@ public class TranslationRestController {
                             String language){
         return translationService.getText(language);
     }
+
+    @GetMapping(value = "external/hello")
+    public String feature09(@RequestParam(name="language", required=false, defaultValue="EN")
+                            String language){
+        return translationServiceExternal.getText(language);
+    }
+
+
 }

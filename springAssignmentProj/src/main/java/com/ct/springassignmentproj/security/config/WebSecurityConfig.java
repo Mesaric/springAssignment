@@ -1,6 +1,6 @@
-package com.ct.springAssignmentProj.security.config;
+package com.ct.springassignmentproj.security.config;
 
-import com.ct.springAssignmentProj.appuser.AppUserService;
+import com.ct.springassignmentproj.appuser.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +24,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/hello-rest").permitAll()
                 .requestMatchers("/hello").permitAll()
                 .requestMatchers("/registration").permitAll()
+                .requestMatchers("/external/hello").permitAll()
                 .requestMatchers("/secure/hello").hasAnyAuthority("USER", "ADMIN")
                 .requestMatchers("/secure/admin").hasAuthority("ADMIN")
                 .anyRequest()
