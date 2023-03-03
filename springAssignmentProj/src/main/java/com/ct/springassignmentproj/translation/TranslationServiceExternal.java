@@ -1,28 +1,36 @@
 package com.ct.springassignmentproj.translation;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
 @AllArgsConstructor
 public class TranslationServiceExternal {
+    private final static String TRANSLATION_FAILURE_MSG = "External API failed to translate message '%s' from language %s to %s.";
 
     @SneakyThrows
-    public String getText(String languageCode) {
+    public String getText(String targetLanguage) {
+        String message = "Hello world!";
+        String messageLanguage = "en".trim().toUpperCase(); //todo: centralise language code validation
+
+        if (messageLanguage.equals(targetLanguage)) {
+            return message;
+        }
+
         OkHttpClient client = new OkHttpClient();
         FormBody body =
                 new FormBody.Builder()
-                        .add("q", "Hello, world!")
-                        .add("target", "es")
-                        .add("source", "en")
+                        .add("q", message)
+                        .add("target", targetLanguage)
+                        .add("source", messageLanguage)
                         .add("format", "text")
                         .build();
 
@@ -36,11 +44,16 @@ public class TranslationServiceExternal {
 
         var response = client.newCall(request.build()).execute();
         if (!response.isSuccessful()) {
-            throw new RuntimeException("External API failed to translate");
+            throw new RuntimeException(String.format(TRANSLATION_FAILURE_MSG, message, messageLanguage, targetLanguage));
         }
-        return translation(Objects.requireNonNull(response.body()).string());
-    }
-    public String translation(String result) {
-        return result;
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(Objects.requireNonNull(response.body()).string());
+        String translatedText = jsonNode.get("data")
+                .get("translations")
+                .get(0)
+                .get("translatedText")
+                .asText();
+
+        return translatedText;
     }
 }
