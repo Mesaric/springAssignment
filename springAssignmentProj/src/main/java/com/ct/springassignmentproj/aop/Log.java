@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.aop;
+package com.ct.springassignmentproj.aop;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
