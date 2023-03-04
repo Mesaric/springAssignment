@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
  * Class that's used for adding a few entries for easier runtime testing
  */
 
-
 @Component
 @AllArgsConstructor
 public class DataLoader implements CommandLineRunner {

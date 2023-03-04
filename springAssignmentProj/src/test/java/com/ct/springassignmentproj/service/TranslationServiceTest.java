@@ -2,7 +2,6 @@ package com.ct.springassignmentproj.service;
 
 import com.ct.springassignmentproj.model.Translation;
 import com.ct.springassignmentproj.repository.TranslationRepository;
-import com.ct.springassignmentproj.service.TranslationService;
 import com.ct.springassignmentproj.util.IsoUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

@@ -1,14 +1,8 @@
 package com.ct.springassignmentproj.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
-@Getter
-@AllArgsConstructor
-@EqualsAndHashCode
-@ToString
+@Data
 public class RegistrationRequest {
     private final String email;
     private final String password;
