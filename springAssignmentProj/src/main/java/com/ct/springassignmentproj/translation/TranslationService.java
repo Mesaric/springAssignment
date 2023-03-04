@@ -1,5 +1,6 @@
 package com.ct.springassignmentproj.translation;
 
+import com.ct.springassignmentproj.aop.Log;
 import com.ct.springassignmentproj.util.IsoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class TranslationService {
     private final TranslationRepository translationRepository;
     private final IsoUtil isoUtil;
 
+    @Log
     public String getText(String language){
         String sanitisedLanguage = isoUtil.sanitizeISOCode(language);
         if (!IsoUtil.isValidISOLanguage(sanitisedLanguage)){
@@ -24,6 +26,7 @@ public class TranslationService {
                 .getText();
     }
 
+    @Log
     public String addTranslation(Translation translation) {
         String sanitisedLanguage = isoUtil.sanitizeISOCode(translation.getLanguage());
 

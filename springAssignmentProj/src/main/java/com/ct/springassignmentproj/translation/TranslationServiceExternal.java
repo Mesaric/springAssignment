@@ -1,5 +1,6 @@
 package com.ct.springassignmentproj.translation;
 
+import com.ct.springassignmentproj.aop.Log;
 import com.ct.springassignmentproj.util.IsoUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +18,8 @@ import java.util.Objects;
 public class TranslationServiceExternal {
     private final static String TRANSLATION_FAILURE_MSG = "External API failed to translate message '%s' from language %s to %s.";
     private final IsoUtil isoUtil;
+
+    @Log
     @SneakyThrows
     public String getText(String targetLanguage) {
         String message = "Hello world!";

@@ -25,4 +25,5 @@ AssertJ <br />
 Mockito (core, junit-jupiter) <br />
 Thymeleaf <br />
 Validation <br />
+AOP <br />
 Okhttp3
