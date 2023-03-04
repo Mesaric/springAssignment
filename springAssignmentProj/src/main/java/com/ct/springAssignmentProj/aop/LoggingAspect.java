@@ -12,29 +12,19 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class LoggingAspect {
-    @Pointcut("execution(* com.ct.springAssignmentProj.translation.TranslationController.*(..))")
-    //pointcut annotation with a pointcut expression
-    public void loggingControllerPointcut() {
+    @Pointcut("@annotation(com.ct.springAssignmentProj.aop.Log)")
+    public void pointcut() {}
 
-    }
-
-    /**
-     * Adding advice that runs before joinPoint with loggingControllerPointcut() signature
-     *
-     * @param joinPoint
-     */
-    @Before("loggingControllerPointcut()")
-    public void before(JoinPoint joinPoint) {
-        log.info("Before translateController method invoked:" + joinPoint.getSignature());
-    }
-
-    /**
-     * Adding advice that runs after joinPoint with loggingControllerPointcut() signature
-     *
-     * @param joinPoint
-     */
-    @After("loggingControllerPointcut()")
-    public void after(JoinPoint joinPoint) {
-        log.info("After translateController method invoked:" + joinPoint.getSignature());
+    @Before("pointcut()")
+    public void logMethod(JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        Object[] args = joinPoint.getArgs();
+        StringBuilder arguments = new StringBuilder();
+        for (Object arg : args) {
+            arguments
+                    .append("Type: ").append(arg.getClass().getSimpleName())
+                    .append("Value: ").append(arg);
+        }
+        log.info("Executing service: {} with arguments: {}", methodName, arguments);
     }
 }
