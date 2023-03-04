@@ -20,5 +20,3 @@ spring:
 logging:
   file:
     name: app.log
-  level:
-    com.ct.springAssignmentProj: debug

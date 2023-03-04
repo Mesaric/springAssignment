@@ -1,5 +1,6 @@
 package com.ct.springassignmentproj.registration;
 
+import com.ct.springassignmentproj.aop.Log;
 import com.ct.springassignmentproj.appuser.AppUser;
 import com.ct.springassignmentproj.appuser.AppUserRole;
 import com.ct.springassignmentproj.appuser.AppUserService;
@@ -13,6 +14,7 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
     private final AppUserService appUserService;
 
+    @Log
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
         if (!isValidEmail) {
