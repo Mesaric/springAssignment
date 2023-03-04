@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;

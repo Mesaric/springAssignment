@@ -24,4 +24,5 @@ Lombok <br />
 AssertJ <br />
 Mockito (core, junit-jupiter) <br />
 Thymeleaf <br />
-Validation
+Validation <br />
+Okhttp3
