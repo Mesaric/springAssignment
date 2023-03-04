@@ -21,6 +21,7 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/").permitAll()
                 .requestMatchers("/hello-rest").permitAll()
                 .requestMatchers("/hello").permitAll()
                 .requestMatchers("/registration").permitAll()

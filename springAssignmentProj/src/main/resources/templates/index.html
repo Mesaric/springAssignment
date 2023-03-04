@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index page</title>
+  <style>
+		table {
+		    font-family: Verdana, sans-serif;
+			border:1px solid #b3adad;
+			border-collapse:collapse;
+			padding:5px;
+		}
+		table th {
+			border:1px solid #b3adad;
+			padding:5px;
+			background: #f0f0f0;
+			color: #313030;
+		}
+		table td {
+			border:1px solid #b3adad;
+			text-align:left;
+			padding:5px;
+			background: #ffffff;
+			color: #313030;
+		}
+	</style>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>Endpoint</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/hello-rest?language=sl">/hello-rest{?language=ISO_CODE}></a></td>
+      <td>Returns string of 'Hello World'. If optional language parameter is provided, its translation(version) will be returned instead (if in postgresDB). </td>
+    </tr>
+    <tr>
+      <td><a href="/hello?language=sl">/hello{?language=ISO_CODE}</a></td>
+      <td>Returns web page that displays of 'Hello World'. </td>
+    </tr>
+    <tr>
+      <td><a href="/secure/hello?language=sl">/secure/hello{?language=ISO_CODE}</a></td>
+      <td>Returns string of 'Hello World' but requires authentication.</td>
+    </tr>
+    <tr>
+      <td><a href="/secure/admin">/secure/admin</a></td>
+      <td>Admin page that allows admin to add new Language-Text pairs in DB. Requires authentication with ADMIN account.</td>
+    </tr>
+    <tr>
+      <td><a href="/external/hello?language=sl">/external/hello{?language=ISO_CODE}</a></td>
+      <td>Returns string of 'Hello World' translated with external API.</td>
+    </tr>
+  </tbody>
+</table>
+</br></br>
+<table>
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>admin@gmail.com</td>
+    <td>123</td>
+  </tr>
+  <tr>
+    <td>user@gmail.com</td>
+    <td>123</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
