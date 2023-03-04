@@ -1,4 +1,4 @@
-package com.ct.springassignmentproj.registration;
+package com.ct.springassignmentproj.service;
 
 import org.springframework.stereotype.Service;
 

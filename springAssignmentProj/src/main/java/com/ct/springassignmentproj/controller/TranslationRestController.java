@@ -1,5 +1,7 @@
-package com.ct.springassignmentproj.translation;
+package com.ct.springassignmentproj.controller;
 
+import com.ct.springassignmentproj.service.TranslationService;
+import com.ct.springassignmentproj.service.TranslationServiceExternal;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,9 +1,9 @@
-package com.ct.springassignmentproj.registration;
+package com.ct.springassignmentproj.service;
 
 import com.ct.springassignmentproj.aop.Log;
-import com.ct.springassignmentproj.appuser.AppUser;
-import com.ct.springassignmentproj.appuser.AppUserRole;
-import com.ct.springassignmentproj.appuser.AppUserService;
+import com.ct.springassignmentproj.model.AppUser;
+import com.ct.springassignmentproj.model.AppUserRole;
+import com.ct.springassignmentproj.model.RegistrationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

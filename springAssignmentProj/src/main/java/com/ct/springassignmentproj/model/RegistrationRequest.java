@@ -1,4 +1,4 @@
-package com.ct.springassignmentproj.registration;
+package com.ct.springassignmentproj.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

@@ -1,6 +1,6 @@
-package com.ct.springassignmentproj.security.config;
+package com.ct.springassignmentproj.security;
 
-import com.ct.springassignmentproj.appuser.AppUserService;
+import com.ct.springassignmentproj.service.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

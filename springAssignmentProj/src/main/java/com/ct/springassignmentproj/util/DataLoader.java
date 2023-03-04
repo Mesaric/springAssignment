@@ -1,10 +1,10 @@
-package com.ct.springassignmentproj.dataloader;
+package com.ct.springassignmentproj.util;
 
-import com.ct.springassignmentproj.appuser.AppUser;
-import com.ct.springassignmentproj.appuser.AppUserRole;
-import com.ct.springassignmentproj.appuser.AppUserService;
-import com.ct.springassignmentproj.translation.Translation;
-import com.ct.springassignmentproj.translation.TranslationRepository;
+import com.ct.springassignmentproj.model.AppUser;
+import com.ct.springassignmentproj.model.AppUserRole;
+import com.ct.springassignmentproj.service.AppUserService;
+import com.ct.springassignmentproj.model.Translation;
+import com.ct.springassignmentproj.repository.TranslationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -1,5 +1,6 @@
-package com.ct.springassignmentproj.appuser;
+package com.ct.springassignmentproj.repository;
 
+import com.ct.springassignmentproj.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
