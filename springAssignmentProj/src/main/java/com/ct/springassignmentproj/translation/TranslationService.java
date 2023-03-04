@@ -28,7 +28,7 @@ public class TranslationService {
         String sanitisedLanguage = isoUtil.sanitizeISOCode(translation.getLanguage());
 
         if (!IsoUtil.isValidISOLanguage(sanitisedLanguage)){
-            throw new RuntimeException(String.format(IsoUtil.NOT_ISO_LANGUAGE_CODE, sanitisedLanguage));
+            throw new IllegalStateException(String.format(IsoUtil.NOT_ISO_LANGUAGE_CODE, sanitisedLanguage));
         }
 
         if (translation.getText().length() == 0 || translation.getText().length() > 127) {
