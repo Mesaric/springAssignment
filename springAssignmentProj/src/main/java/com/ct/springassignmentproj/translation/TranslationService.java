@@ -1,9 +1,8 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
+import com.ct.springassignmentproj.util.IsoUtil;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.ServletRequestBindingException;
 
 @Service
 @AllArgsConstructor
@@ -13,18 +12,25 @@ public class TranslationService {
     private final static String INCORRECT_TRANSLATION_LENGTH = "Translation %s is of length %d (should be between 1 or 127 characters long).";
     private final static String TRANSLATION_NOT_FOUND_MSG = "No translation of language %s was found";
     private final TranslationRepository translationRepository;
+    private final IsoUtil isoUtil;
 
     public String getText(String language){
-        return translationRepository.findByLanguage(language.toUpperCase())
+        String sanitisedLanguage = isoUtil.sanitizeISOCode(language);
+        if (!IsoUtil.isValidISOLanguage(sanitisedLanguage)){
+            throw new RuntimeException(String.format(IsoUtil.NOT_ISO_LANGUAGE_CODE, sanitisedLanguage));
+        }
+        return translationRepository.findByLanguage(sanitisedLanguage)
                 .orElseThrow(() -> new IllegalStateException(String.format(TRANSLATION_NOT_FOUND_MSG, language)))
                 .getText();
     }
 
     public String addTranslation(Translation translation) {
-        String sanitisedLanguageCode = translation.getLanguage().trim().toUpperCase();
-        if (sanitisedLanguageCode.length() != 2) {
-            throw new IllegalStateException(String.format(INCORRECT_LANGUAGE_CODE_LENGTH, sanitisedLanguageCode, sanitisedLanguageCode.length()));
+        String sanitisedLanguage = isoUtil.sanitizeISOCode(translation.getLanguage());
+
+        if (!IsoUtil.isValidISOLanguage(sanitisedLanguage)){
+            throw new IllegalStateException(String.format(IsoUtil.NOT_ISO_LANGUAGE_CODE, sanitisedLanguage));
         }
+
         if (translation.getText().length() == 0 || translation.getText().length() > 127) {
             throw new IllegalStateException(String.format(INCORRECT_TRANSLATION_LENGTH, translation.getLanguage(), translation.getLanguage().length()));
         }
@@ -32,7 +38,7 @@ public class TranslationService {
         translationRepository.save(
                 new Translation(
                         translation.getText(),
-                        translation.getLanguage().toUpperCase()
+                        sanitisedLanguage
                 ));
 
         return String.format(NEW_TRANSLATION_ADDED_MSG, translation.getText());

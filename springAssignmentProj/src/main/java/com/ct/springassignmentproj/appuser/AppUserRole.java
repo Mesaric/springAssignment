@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.appuser;
+package com.ct.springassignmentproj.appuser;
 
 public enum AppUserRole {
     USER,

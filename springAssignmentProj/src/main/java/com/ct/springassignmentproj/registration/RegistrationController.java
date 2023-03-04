@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.registration;
+package com.ct.springassignmentproj.registration;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

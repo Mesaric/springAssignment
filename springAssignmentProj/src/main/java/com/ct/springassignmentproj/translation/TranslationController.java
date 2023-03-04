@@ -1,4 +1,4 @@
-package com.ct.springAssignmentProj.translation;
+package com.ct.springassignmentproj.translation;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TranslationController {
     private  final TranslationService translationService;
     @GetMapping(value = "hello")
-    public String feature02(@RequestParam(name="language", required=false, defaultValue="EN")
+    public String feature02(@RequestParam(name="language", required=false, defaultValue="en")
                                 String language, Model model){
         model.addAttribute("text", translationService.getText(language));
         model.addAttribute("language", language);
