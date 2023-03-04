@@ -1,5 +1,7 @@
-package com.ct.springassignmentproj.translation;
+package com.ct.springassignmentproj.controller;
 
+import com.ct.springassignmentproj.model.Translation;
+import com.ct.springassignmentproj.service.TranslationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

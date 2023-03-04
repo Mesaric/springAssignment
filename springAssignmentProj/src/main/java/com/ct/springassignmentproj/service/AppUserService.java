@@ -1,6 +1,8 @@
-package com.ct.springassignmentproj.appuser;
+package com.ct.springassignmentproj.service;
 
 import com.ct.springassignmentproj.aop.Log;
+import com.ct.springassignmentproj.model.AppUser;
+import com.ct.springassignmentproj.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

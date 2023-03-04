@@ -1,6 +1,8 @@
-package com.ct.springassignmentproj.translation;
+package com.ct.springassignmentproj.service;
 
 import com.ct.springassignmentproj.aop.Log;
+import com.ct.springassignmentproj.model.Translation;
+import com.ct.springassignmentproj.repository.TranslationRepository;
 import com.ct.springassignmentproj.util.IsoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

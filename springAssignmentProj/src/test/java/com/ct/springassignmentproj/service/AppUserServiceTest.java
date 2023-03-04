@@ -1,5 +1,9 @@
-package com.ct.springassignmentproj.appuser;
+package com.ct.springassignmentproj.service;
 
+import com.ct.springassignmentproj.model.AppUser;
+import com.ct.springassignmentproj.model.AppUserRole;
+import com.ct.springassignmentproj.repository.AppUserRepository;
+import com.ct.springassignmentproj.service.AppUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

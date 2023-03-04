@@ -1,4 +1,4 @@
-package com.ct.springassignmentproj.translation;
+package com.ct.springassignmentproj.service;
 
 import com.ct.springassignmentproj.aop.Log;
 import com.ct.springassignmentproj.util.IsoUtil;
