@@ -1,6 +1,22 @@
 # Spring project assignment
 Java Spring Boot project that serves different translations of 'Hello world' from DB or external API.
+## Quick review of completed tasks
+- Has `/hello-rest` REST endpoint which returns ‘Hello World’ string
+- Has `/hello` endpoint which returns a HTML page with ‘Hello World’ string displayed
+- Has `PostgreSQL` database started with initial set of 10 different strings per language (‘Hello
+World’ in 10 different languages) and /hello endpoints return the string determined by language
+parameter passed inside the query _Note: Project was running on PostgreSQL DB from the start. H2 in-memory is only used for tests._
+- Has `/secure/hello` endpoint that requires user to log in with username and password
+- Has a secured ‘Admin’ page that allows the user to add new Language-Message pairs into the
+database _Note: `/secure/admin`_
+- Has an aspect (AOP) that performs logging for different endpoints with useful information
+included into logs _Note: Executed method (marked  with @Log) and parameters passed are displayed in console. Same text is saved in app.log file._ 
+- Uses a standalone DB instead of in-memory H2 DB
+- Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API) _Note: Is using Google api provided over RapidAPI. Headers and URL currently hardcoded._
+- Use standalone DB instead of in-memory H2
+- Dockerize the application _Note: Partially dockerized; only PostgreSQL container._
 
+# Further information about the application
 ## Available endpoints
 Text inside {} is optional. On every endpoint regarding translations, optional parameter `language` is set on `en` by default.
 
@@ -34,6 +50,10 @@ Text inside {} is optional. On every endpoint regarding translations, optional p
 |Γεια σας κόσμε|el|
 |Привіт, світ|uk|
 
+## Setting up PostgreSQL container
+After running the docker service, connect to running container with; `docker exec -it postgres bash`
+and then connect to PostgreSQL server; `psql -U postgres`
+and create database 'springproj' with; `CREATE DATABASE springproj;`
 
 # Project init with spring initializr
 ## Link
