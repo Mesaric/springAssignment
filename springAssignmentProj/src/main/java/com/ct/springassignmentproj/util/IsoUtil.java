@@ -1,7 +1,6 @@
 package com.ct.springassignmentproj.util;
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;

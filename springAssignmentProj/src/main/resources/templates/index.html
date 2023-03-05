@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index page</title>
+  <style>
+		table {
+		    font-family: Verdana, sans-serif;
+			border:1px solid #b3adad;
+			border-collapse:collapse;
+			padding:5px;
+		}
+		table th {
+			border:1px solid #b3adad;
+			padding:5px;
+			background: #f0f0f0;
+			color: #313030;
+		}
+		table td {
+			border:1px solid #b3adad;
+			text-align:left;
+			padding:5px;
+			background: #ffffff;
+			color: #313030;
+		}
+	</style>
+</head>
+<body>
+  <table>
+    <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/hello-rest?language=sl">/hello-rest{?language=ISO_CODE}</a></td>
+        <td>Returns a 'Hello World' string. If optional language parameter is provided, its translation(version) will be returned instead if in postgres DB.</td>
+      </tr>
+      <tr>
+        <td><a href="/hello?language=sl">/hello{?language=ISO_CODE}</a></td>
+        <td>Returns a 'Hello World' web page.</td>
+      </tr>
+      <tr>
+        <td><a href="/secure/hello?language=sl">/secure/hello{?language=ISO_CODE}</a></td>
+        <td>Returns a 'Hello World' string but requires authentication.</td>
+      </tr>
+      <tr>
+        <td><a href="/secure/admin">/secure/admin</a></td>
+        <td>Returns an admin page that allows adding new Language-Text pairs in DB. Requires authentication with ADMIN account.</td>
+      </tr>
+      <tr>
+        <td><a href="/external/hello?language=sl">/external/hello{?language=ISO_CODE}</a></td>
+        <td>Returns a 'Hello World' string, translated with external API.</td>
+      </tr>
+    </tbody>
+  </table></br></br>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>admin@gmail.com</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <td>user@gmail.com</td>
+      <td>123</td>
+    </tr>
+    </tbody>
+  </table></br></br>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Translation</th>
+      <th>ISO 639-1 code</th>
+    </tr>	</thead>
+    <tbody>	<tr>
+    <td>Hello world</td>
+    <td>en</td>
+  </tr>
+  <tr>
+    <td>Pozdravljen svet</td>
+    <td>sl</td>
+  </tr>
+  <tr>
+    <td>Ahoj svet</td>
+    <td>sk</td>
+  </tr>
+  <tr>
+    <td>Hola mundo</td>
+    <td>es</td>
+  </tr>
+  <tr>
+    <td>Hallo welt</td>
+    <td>de</td>
+  </tr>
+  <tr>
+    <td>Bonjour le monde</td>
+    <td>fr</td>
+  </tr>
+  <tr>
+    <td>Witaj swiecie</td>
+    <td>pl</td>
+  </tr>
+  <tr>
+    <td>Halo dunia</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td>Ciao mondo</td>
+    <td>it</td>
+  </tr>
+  <tr>
+    <td>Hallo wereld</td>
+    <td>nl</td>
+  </tr>
+  <tr>
+    <td>Γεια σας κόσμε</td>
+    <td>el</td>
+  </tr>
+  <tr>
+    <td>Привіт, світ</td>
+    <td>uk</td>
+  </tr>
+    <tbody>
+  </table>
+
+</body>
+</html>

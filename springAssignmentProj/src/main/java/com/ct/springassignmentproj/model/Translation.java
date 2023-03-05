@@ -3,16 +3,11 @@ package com.ct.springassignmentproj.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
 @Entity
+@Data
+@NoArgsConstructor
 public class Translation {
     @SequenceGenerator(
             name = "translation_sequence",
