@@ -19,7 +19,7 @@ public class TranslationController {
                                 String language, Model model){
         model.addAttribute("text", translationService.getText(language));
         model.addAttribute("language", language);
-        return "helloWorld";
+        return "showTranslation";
     }
     @GetMapping(value = "secure/admin")
     public String feature06(Model model){
