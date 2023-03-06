@@ -66,7 +66,7 @@ class TranslationServiceTest {
     @Test()
     public void willThrowAtAddTranslationWithIncorrectTranslationLength() {
         //given
-        final String INCORRECT_TRANSLATION_LENGTH_MSG = "Translation %s is of length %d (should be between 1 or 127 characters long).";
+        final String INVALID_TEXT_LENGTH_MSG = "Text %s is of length %d (should be between 1 or 127 characters long).";
         final String VALID_ISO_LANGUAGE = "en";
         final String invalidText = "This text is longer than the maximum allowed length of 127 characters. This text is longer than the maximum allowed length of 127 characters. This text is longer than the maximum allowed length of 127 characters.";
         Translation translation = new Translation(invalidText, VALID_ISO_LANGUAGE);
@@ -77,7 +77,7 @@ class TranslationServiceTest {
         //then
         assertThatThrownBy(() -> underTest.addTranslation(translation))
                 .isInstanceOf(IllegalStateException.class)
-                .hasMessageContaining(String.format(INCORRECT_TRANSLATION_LENGTH_MSG, translation.getLanguage(), translation.getLanguage().length()));
+                .hasMessageContaining(String.format(INVALID_TEXT_LENGTH_MSG, translation.getText(), translation.getText().length()));
 
         verify(translationRepository, never()).save(any());
     }

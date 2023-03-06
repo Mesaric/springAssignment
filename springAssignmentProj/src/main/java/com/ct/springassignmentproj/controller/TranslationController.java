@@ -24,17 +24,13 @@ public class TranslationController {
     @GetMapping(value = "secure/admin")
     public String feature06(Model model){
         model.addAttribute("translation", new Translation());
-        model.addAttribute("statusMessage", "");
         return "addTranslation";
     }
 
     @PostMapping(value = "secure/addTranslation")
-    public String addEntry(@ModelAttribute Translation translation, Model model){
-
-        String statusMessage = translationService.addTranslation(translation);
-
+    public String feature06Add(@ModelAttribute Translation translation, Model model){
+        translationService.addTranslation(translation);
         model.addAttribute("translation", new Translation());
-        model.addAttribute("statusMessage", statusMessage);
         return "redirect:/secure/admin";
 
     }
