@@ -11,9 +11,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class TranslationService {
     private final static String NEW_TRANSLATION_ADDED_MSG = "Translation with text '%s' added.";
-    private final static String INCORRECT_LANGUAGE_CODE_LENGTH = "Language code %s is of length %d (should be 2 characters long).";
-    private final static String INCORRECT_TRANSLATION_LENGTH = "Translation %s is of length %d (should be between 1 or 127 characters long).";
-    private final static String TRANSLATION_NOT_FOUND_MSG = "No translation of language %s was found";
+    private final static String INVALID_TEXT_LENGTH_MSG = "Text %s is of length %d (should be between 1 or 127 characters long).";
+    private final static String TRANSLATION_NOT_FOUND_MSG = "No translation of language %s was found.";
+    private final static String TRANSLATION_EXISTS_MSG = "Translation of language %s already exists.";
+
     private final TranslationRepository translationRepository;
     private final IsoUtil isoUtil;
 
@@ -32,12 +33,17 @@ public class TranslationService {
     public String addTranslation(Translation translation) {
         String sanitisedLanguage = isoUtil.sanitizeISOCode(translation.getLanguage());
 
+        boolean translationExists = translationRepository.findByLanguage(sanitisedLanguage).isPresent();
+        if (translationExists) {
+            throw new IllegalStateException(String.format(TRANSLATION_EXISTS_MSG, sanitisedLanguage));
+        }
+
         if (!IsoUtil.isValidISOLanguage(sanitisedLanguage)){
             throw new IllegalStateException(String.format(IsoUtil.NOT_ISO_LANGUAGE_CODE, sanitisedLanguage));
         }
 
         if (translation.getText().length() == 0 || translation.getText().length() > 127) {
-            throw new IllegalStateException(String.format(INCORRECT_TRANSLATION_LENGTH, translation.getLanguage(), translation.getLanguage().length()));
+            throw new IllegalStateException(String.format(INVALID_TEXT_LENGTH_MSG, translation.getText(), translation.getText().length()));
         }
 
         translationRepository.save(
