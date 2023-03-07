@@ -50,7 +50,7 @@ public class TranslationServiceExternal {
                 .post(body);
         request.addHeader("Content-Type", "application/x-www-form-urlencoded");
         request.addHeader("Accept-Encoding", "application/gzip");
-        request.addHeader("X-RapidAPI-Key", "d7cd865ad2mshbe749ea37dfca2bp111e3djsn7372d1fbf9be");
+        request.addHeader("X-RapidAPI-Key", "9ae50b97b4mshdaed7d5b11470c3p1410d0jsnf9bce326bd6e");
         request.addHeader("X-RapidAPI-Host", "google-translate1.p.rapidapi.com");
 
         var response = client.newCall(request.build()).execute();
